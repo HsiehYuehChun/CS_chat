@@ -15,7 +15,7 @@ dependencies:
     - fastapi==0.111.0
     - uvicorn==0.30.1
     - urllib3==1.26.18
-    - tensorflow-gpu==2.16.1  # 启用 NVIDIA GPU
+    - tensorflow==2.16.1  # GPU support included if environment is configured properly
     - tensorboard==2.16.2
     - tensorflow-datasets==4.1.0
     - tensorflow-metadata==1.10.0

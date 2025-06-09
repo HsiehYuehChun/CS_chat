@@ -33,9 +33,9 @@ os.makedirs("./results", exist_ok=True)
 base_dir = r"C:\Users\user\Downloads\Telegram Desktop\intent_new" 
 #results_dir = os.path.join(base_dir, "/results") 
 results_dir = r"C:/Users/user/Downloads/TrainingLogs" 
-# 直接指定讀取文件夹的绝对路径
+# 直接指定讀取檔案的絕對路徑
 data_folder = r"C:\Users\user\Downloads\Telegram Desktop\意圖資料庫"
-file_path = data_folder + r"\多語系意圖訓練資料集4.csv"  # 拼接檔案路徑
+file_path = data_folder + r"\多語系意圖訓練資料集4.csv"  # 拼接路徑
 #os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 for root, dirs, files in os.walk(results_dir): 
@@ -222,7 +222,7 @@ def plot_confusion_matrix(cm, labels, title="Confusion Matrix"):
 # 定義優化器
 optimizer = torch.optim.AdamW(model.parameters(), lr=0.000009) 
 
-# 损失函数
+# 損失函數
 criterion = nn.CrossEntropyLoss()
 
 # 定義 Trainer

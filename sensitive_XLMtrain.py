@@ -31,7 +31,7 @@ from matplotlib import rcParams
 rcParams['font.family'] = 'SimHei'  # 使 Matplotlib 支持中文
 rcParams['axes.unicode_minus'] = False  # 防止顯示負號時出現亂碼
 
-# 你也可以設置 Seaborn 使用 Matplotlib 設定的字型
+# 也可以設置 Seaborn 使用 Matplotlib 設定的字型
 sns.set(font="Microsoft YaHei")  
 
 os.chdir("C:/Users/user/Downloads/Telegram Desktop/多語敏感詞訓練")
@@ -40,7 +40,7 @@ os.makedirs("./results", exist_ok=True)
 base_dir = r"C:/Users/user/Downloads/Telegram Desktop/多語敏感詞訓練" 
 #results_dir = os.path.join(base_dir, "/results") 
 results_dir = r"C:/Users/user/Downloads/TrainingLogs" 
-# 直接指定讀取文件夹的绝对路径
+# 直接指定讀取絕對路徑
 data_folder = r"C:\Users\user\Downloads\Telegram Desktop\敏感加停用\整理完待更新資料庫"
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
@@ -65,7 +65,7 @@ print(f"Using device: {device}")
 # 初始化 TensorBoard 的 SummaryWriter\
 writer = SummaryWriter(log_dir=results_dir)
 
-# 指定你想读取的 CSV 文件名称列表
+# 指定要用於訓練的 CSV 列表
 csv_files_to_read = ['簡中一般對話完整標籤化.csv', '簡中政治對話完整標籤化.csv', '多語系訓練資料集.csv','英文政治對話完整標籤化.csv','CSsource.csv', '推特標籤化不良對話_updated.csv','Gossiping-QA-Dataset-2_0_updated.csv']#
 dfs = [pd.read_csv(os.path.join(data_folder, file)) for file in csv_files_to_read]
 
@@ -108,7 +108,7 @@ inputs = [preprocess_text(text) for text in inputs]
 # 檢查組合後的部分文本 
 print("Input examples:", inputs[:10])
 
-# 加载預訓練的 BERT tokenizer
+# 預訓練的 BERT tokenizer
 tokenizer = XLMRobertaTokenizer.from_pretrained('xlm-roberta-base')
 
 class CustomXLMRobertaForSequenceClassification(XLMRobertaForSequenceClassification):
@@ -201,7 +201,7 @@ training_args = TrainingArguments(
     metric_for_best_model="f1" 
     )
 
-# 定義 dataset 負責將 input_ids, attention_mask, labels 打包成一個字典，方便 DataLoader 讀取數據。
+# 定義 dataset 負責將 input_ids, attention_mask, labels 打包成一個字典 方便 DataLoader 讀取數據。
 class CustomDataset(Dataset): 
     def __init__(self, encodings, labels): 
         self.encodings = encodings 

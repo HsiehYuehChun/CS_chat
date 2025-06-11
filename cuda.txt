@@ -1,0 +1,13 @@
+
+conda env create -f C:\Users\RDF\Desktop\env\requirement.yml
+
+pip uninstall torch torchvision torchaudio
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+
+conda install -c nvidia cuda-python
+conda install cuda
+pip install tensorflow-directml-plugin
+conda install cudatoolkit
+conda install cudnn
+
+conda install spyder
